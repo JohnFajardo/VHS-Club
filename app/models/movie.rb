@@ -1,4 +1,4 @@
 class Movie < ApplicationRecord
   has_many :rentals
-  has_many :customers, through: :rental
+  has_many :customers, through: :rentals
 end
