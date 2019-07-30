@@ -1,0 +1,9 @@
+<h1>Showing list of available movies</h1>
+<p><%= link_to "Add new", new_movie_path %></p>
+<hr>
+
+<ul>
+<% @movies.each do |movie| %>
+  <li><%= link_to movie.title, movie %></li>
+<% end %>
+</ul>
