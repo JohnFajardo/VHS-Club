@@ -34,12 +34,12 @@ class CustomersController < ApplicationController
 
   def destroy
     @customer.destroy
-    redirect_to customers_path
+    redirect_to new_login_path
   end
 
   private
   def customer_params
-    params.require(:customer).permit(:name, :email, :password)
+    params.require(:customer).permit(:name, :username, :password)
   end
 
   def find_customer
