@@ -1,0 +1,18 @@
+<h1>Editing <%= @movie.title %></h1>
+<p><%= link_to "Cancel", movie_path %> |
+  <%= link_to "Delete this movie", movie_path, method: :delete %>
+</p>
+
+<%= form_for @movie do |f| %>
+  <p><%= f.label 'Title: ' %>
+    <%= f.text_field :title %></p>
+
+  <p><%= f.label 'Year: ' %>
+    <%= f.select :year, (Time.zone.now.year - 100)..(Time.zone.now.year + 1) %></p>
+
+  <p><%= f.label 'Genre: ' %>
+    <%= f.text_field :genre %></p>
+
+  <p><%= f.submit %></p>
+
+<% end %>
