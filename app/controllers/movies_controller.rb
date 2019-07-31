@@ -6,6 +6,7 @@ class MoviesController < ApplicationController
   end
 
   def show
+    cookies[:movie_id] = @movie.id
   end
 
   private

@@ -1,10 +1,6 @@
 <h1>Rent Movie</h1>
 
 <%= form_for @rental do |f| %>
-  <!-- <p>
-    <%= f.label :customer_id, "Select Customer: " %>
-    <%= f.collection_select :customer_id, @customers, :id, :name %>
-  </p> -->
 
   <p>
     Renter: <%= @current_customer.name %>
@@ -12,8 +8,8 @@
   </p>
 
   <p>
-    <%= f.label :movie_id, "Select Movie: " %>
-    <%= f.collection_select :movie_id, @movies, :id, :title %>
+    Movie: <%= @movie.title %>
+    <%= f.hidden_field :movie_id, value: @movie.id %>
   </p>
 
   <p>

@@ -11,12 +11,12 @@
   </p>
 
   <p>
-    <%= f.label :movie_id, 'Select movie: ' %>
-    <%= f.collection_select :movie_id, @movies, :id, :title %>
+    Movie: <%= @movie.title %>
+    <%= f.hidden_field :movie_id, value: @movie.id %>
   </p>
 
   <p>
-    <%= f.label :rental_length, 'Rental duration: ' %>
+    <%= f.label :rental_length, "Rental Duration: " %>
     <%= f.number_field(:rental_length, in: 1..7) %> days
   </p>
 

@@ -1,5 +1,6 @@
 class RentalsController < ApplicationController
   before_action :find_rental, only: [:show, :edit, :update, :destroy]
+  before_action :find_movie, only: [:new, :create, :edit, :update]
   before_action :authorized
 
   def index
@@ -11,8 +12,6 @@ class RentalsController < ApplicationController
 
   def new
     @rental = Rental.new
-    @customers = Customer.all
-    @movies = Movie.all
   end
 
   def create
@@ -39,6 +38,10 @@ class RentalsController < ApplicationController
 
   def find_rental
     @rental = Rental.find(params[:id])
+  end
+
+  def find_movie
+    @movie = Movie.find(cookies[:movie_id])
   end
 
   def rental_params

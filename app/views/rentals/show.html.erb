@@ -8,3 +8,5 @@
 <p><strong>Customer's Name: </strong><%= link_to @rental.customer.name, @rental.customer %></p>
 <p><strong>Movie: </strong><%= link_to @rental.movie.title, @rental.movie %></p>
 <p><strong>Rental Duration: </strong><%= @rental.rental_length %> days</p>
+
+<%= link_to "Delete Rental", rental_path(@rental), method: :delete %>
