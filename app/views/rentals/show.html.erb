@@ -1,0 +1,10 @@
+<h1>Viewing rental</h1>
+<p><%= link_to "Go back", rentals_path %> |
+  <%= link_to "Edit rental", edit_rental_path %> |
+  <%= link_to "View customers", customers_path %> |
+  <%= link_to "View movies", movies_path %></p>
+<hr>
+
+<p><strong>Customer's name: </strong><%= link_to @rental.customer.name, @rental.customer %></p>
+<p><strong>Movie: </strong><%= link_to @rental.movie.title, @rental.movie %></p>
+<p><strong>Length of rental: </strong><%= @rental.rental_length %> days</p>
