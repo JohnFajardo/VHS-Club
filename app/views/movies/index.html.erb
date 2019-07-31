@@ -1,15 +1,23 @@
 <h1>Showing list of available movies</h1>
 <hr>
 
+<h4>Popular Movies</h4>
 <ul>
-<% @movies.each do |movie| %>
-  <li><%= link_to movie.title, movie %></li>
-<% end %>
+  <% @popular_movies.each do |movie| %>
+    <li><a href="<%= movie_path(movie.id) %>"><img src="http://image.tmdb.org/t/p/w185/<%= movie.poster_path %>"><%= movie.title %></a></li>
+  <% end %>
 </ul>
 
-<p>Popular Movies</p>
+<h4>Upcoming Movies</h4>
 <ul>
-  <% Tmdb::Movie.popular.each do |movie| %>
-    <li><%= link_to movie.title, movie_path(movie.id) %></li>
+  <% @upcoming_movies.each do |movie| %>
+    <li><a href="<%= movie_path(movie.id) %>"><img src="http://image.tmdb.org/t/p/w185/<%= movie.poster_path %>"><%= movie.title %></a></li>
+  <% end %>
+</ul>
+
+<h4>Top Rated Movies</h4>
+<ul>
+  <% @top_rated_movies.each do |movie| %>
+    <li><a href="<%= movie_path(movie.id) %>"><img src="http://image.tmdb.org/t/p/w185/<%= movie.poster_path %>"><%= movie.title %></a></li>
   <% end %>
 </ul>
