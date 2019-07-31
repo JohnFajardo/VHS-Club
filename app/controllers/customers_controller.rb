@@ -1,5 +1,6 @@
 class CustomersController < ApplicationController
   before_action :find_customer, only: [:show, :edit, :update, :destroy]
+  before_action :authorized, only: [:index, :show, :edit, :update, :destroy]
 
   def index
     @customers = Customer.all
@@ -15,8 +16,10 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.create(customer_params)
     if @customer.valid?
-      redirect_to @customer
+      flash["message"] = "Successfully created an account!"
+      redirect_to new_login_path
     else
+      flash["message"] = "Unsuccessful, please try again."
       redirect_to new_customer_path
     end
   end

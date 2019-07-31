@@ -6,11 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Movie.create(title: "Lion King", year: 2019, genre: "Adventure")
-Movie.create(title: "John Wick: Chapter 2", year: 2017, genre: "Action")
-Movie.create(title: "Avengers Endgame", year: 2019, genre: "Sci-Fi")
-Movie.create(title: "Black Panther", year: 2018, genre: "Sci-Fi")
-Movie.create(title: "It", year: 2017, genre: "Horror")
+Movie.destroy_all
+Customer.destroy_all
 
 Customer.create(name: "Petaaa", username: "peter@gmail.com", password: "peterpass")
 Customer.create(name: "John", username: "john@gmail.com", password: "johnpass")
