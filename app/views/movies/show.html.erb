@@ -3,7 +3,6 @@
   <%= link_to "Edit movie", edit_movie_path %>
 </p>
 <hr>
-
-<p><strong>Movie title: </strong><%= @movie.title %></p>
-<p><strong>Year produced: </strong><%= @movie.year %></p>
-<p><strong>Genre: </strong><%= @movie.genre %></p>
+<p><strong>Movie title: </strong><%= @movie["title"] %></p>
+<p><strong>Release Date: </strong><%= @movie["release_date"] %></p>
+<p><strong>Genre: </strong><%= @movie["genres"][0]["name"] %></p>

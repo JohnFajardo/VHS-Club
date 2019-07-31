@@ -1,11 +1,12 @@
 class MoviesController < ApplicationController
-  before_action :find_movie, only: [:show, :edit, :update, :destroy]
+  before_action :find_movie, only: [:edit, :update, :destroy]
 
   def index
     @movies = Movie.all
   end
 
   def show
+    @movie = Tmdb::Movie.detail(params[:id])
   end
 
   def new

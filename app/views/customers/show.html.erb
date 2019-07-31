@@ -2,6 +2,16 @@
 <p><%= link_to "Go back", customers_path %></p>
 <hr>
 
-Email: <%= @customer.email %><br>
-<%= link_to "Edit", edit_customer_path %>
-<%= link_to "Delete", customer_path, :method => :delete %>
+<p>E-mail: <%= @customer.username %></p>
+
+<% if @current_customer.id == @customer.id %>
+  <%= link_to "Edit Profile", edit_customer_path %> |
+  <%= link_to "Delete Account", customer_path, method: :delete %>
+<% end %>
+<br><br>
+
+<p>All Rentals</p>
+<p>[ insert list of rentals associated with customer ]</p>
+<% if @current_customer.id == @customer.id %>
+  <%= link_to "Rent a Movie", movies_path %>
+<% end %>

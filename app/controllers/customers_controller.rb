@@ -1,5 +1,6 @@
 class CustomersController < ApplicationController
   before_action :find_customer, only: [:show, :edit, :update, :destroy]
+  before_action :authorized, only: [:index, :show, :edit, :update, :destroy]
 
   def index
     @customers = Customer.all
@@ -15,8 +16,10 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.create(customer_params)
     if @customer.valid?
-      redirect_to @customer
+      flash["message"] = "Successfully created an account!"
+      redirect_to new_login_path
     else
+      flash["message"] = "Unsuccessful, please try again."
       redirect_to new_customer_path
     end
   end
@@ -34,12 +37,12 @@ class CustomersController < ApplicationController
 
   def destroy
     @customer.destroy
-    redirect_to customers_path
+    redirect_to new_login_path
   end
 
   private
   def customer_params
-    params.require(:customer).permit(:name, :email, :password)
+    params.require(:customer).permit(:name, :username, :password)
   end
 
   def find_customer

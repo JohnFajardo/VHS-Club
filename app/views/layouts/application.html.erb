@@ -11,8 +11,24 @@
   </head>
 
   <body>
-  <div class="container">
-    <%= yield %>
-  </div>
+    <header>
+      <% if @logged_in %>
+        <p>Logged in As: <%= @current_customer.name %></p>
+        <%= link_to "Logout", "/logout", method: :delete %>
+      <% else %>
+        <%= link_to "Login", new_login_path %>
+        <%= link_to "Register", new_customer_path %>
+      <% end %>
+
+      <% if flash[:message] %>
+        <p class="message">
+          <%= flash[:message] %>
+        </p>
+      <% end %>
+    </header>
+
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
