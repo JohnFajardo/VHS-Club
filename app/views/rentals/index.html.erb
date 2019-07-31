@@ -1,0 +1,12 @@
+<h1>Viewing list of rentals</h1>
+<p><%= link_to "Add new rental", new_rental_path %> |
+<%= link_to "View customers", customers_path %> |
+<%= link_to "View movies", movies_path %></p>
+
+
+<hr>
+<ul>
+  <% @rentals.each do |rental| %>
+  <li><%= link_to "#{rental.customer.name }  rented  #{rental.movie.title} for #{rental.rental_length} days", rental %></li>
+  <% end %>
+</ul>
