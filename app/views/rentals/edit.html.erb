@@ -1,0 +1,18 @@
+<h1>Editing rental</h1>
+<p><%= link_to "Cancel", rentals_path %> |
+  <%= link_to "Delete rental", rental_path, method: :delete %>
+</p>
+<hr>
+
+<%= form_for @rental do |f| %>
+  <p><%= f.label :customer_id, 'Select customer: ' %>
+    <%= f.collection_select :customer_id, @customers, :id, :name %></p>
+
+  <p><%= f.label :movie_id, 'Select movie: ' %>
+    <%= f.collection_select :movie_id, @movies, :id, :title %></p>
+
+  <p><%= f.label :rental_length, 'Rental duration: ' %>
+    <%= f.number_field(:rental_length, in: 1..7) %> days</p>
+
+  <%= f.submit('Edit this rental!') %>
+<% end %>
