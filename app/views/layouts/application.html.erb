@@ -14,6 +14,9 @@
     <header>
       <% if @logged_in %>
         <p>Logged in As: <%= @current_customer.name %></p>
+        <%= link_to "Profile Page", customer_path(@current_customer) %> |
+        <%= link_to "All Customers", customers_path %> |
+        <%= link_to "All Movies", movies_path %> | 
         <%= link_to "Logout", "/logout", method: :delete %>
       <% else %>
         <%= link_to "Login", new_login_path %>

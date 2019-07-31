@@ -1,17 +1,35 @@
 <h1><%= @customer.name %>'s Profile Page</h1>
-<p><%= link_to "Go back", customers_path %></p>
+<p><%= link_to "Return To Customer List", customers_path %></p>
 <hr>
 
 <p>E-mail: <%= @customer.username %></p>
 
 <% if @current_customer.id == @customer.id %>
+
   <%= link_to "Edit Profile", edit_customer_path %> |
   <%= link_to "Delete Account", customer_path, method: :delete %>
-<% end %>
-<br><br>
+  <br><br>
 
-<p>All Rentals</p>
-<p>[ insert list of rentals associated with customer ]</p>
-<% if @current_customer.id == @customer.id %>
+  <p>Rented Movies</p>
+  <ul>
+    <% @customer.rentals.each do |rental| %>
+      <li>
+        <%= link_to "#{rental.movie.title}", rental_path(rental.id) %>
+      </li>
+    <% end %>
+  </ul>
+
   <%= link_to "Rent a Movie", movies_path %>
+
+<% else %>
+
+  <p>Rented Movies</p>
+  <ul>
+    <% @customer.rentals.each do |rental| %>
+      <li>
+        <%= link_to "#{rental.movie.title}", rental_path(rental.id) %>
+      </li>
+    <% end %>
+  </ul>
+
 <% end %>
