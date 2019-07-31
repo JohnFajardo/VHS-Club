@@ -2,9 +2,7 @@ class MoviesController < ApplicationController
   before_action :find_movie, only: [:show]
 
   def index
-    @popular_movies = Tmdb::Movie.popular
-    @upcoming_movies = Tmdb::Movie.upcoming
-    @top_rated_movies = Tmdb::Movie.top_rated
+    @movies = Movie.all
   end
 
   def show
@@ -13,7 +11,11 @@ class MoviesController < ApplicationController
   private
 
   def find_movie
-    @movie = Tmdb::Movie.detail(params[:id])
+    @movie = Movie.find(params[:id])
+  end
+
+  def movie_params
+    params.require(:movie).permit(:title, :release_date, :genre, :overview, :poster_path, :rating)
   end
 
 end

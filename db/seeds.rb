@@ -12,3 +12,20 @@ Customer.destroy_all
 Customer.create(name: "Petaaa", username: "peter@gmail.com", password: "peterpass")
 Customer.create(name: "John", username: "john@gmail.com", password: "johnpass")
 Customer.create(name: "Bobby", username: "bobby@gmail.com", password: "bobbypass")
+
+Tmdb::Movie.popular.each do |movie|
+  @movie = Movie.create(title: movie.title, release_date: movie.release_date, overview: movie.overview, poster_path: movie.poster_path, rating: movie.vote_average)
+
+  movie_genres = ""
+  chosen_movie = Tmdb::Movie.detail(movie.id)
+
+  chosen_movie["genres"].each do |genre_hash|
+    if genre_hash == chosen_movie["genres"].last
+      movie_genres += "#{genre_hash["name"]}"
+    else
+      movie_genres += "#{genre_hash["name"]}, "
+    end
+  end
+
+  @movie.update(genre: movie_genres)
+end

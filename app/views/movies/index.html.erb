@@ -3,21 +3,7 @@
 
 <h4>Popular Movies</h4>
 <ul>
-  <% @popular_movies.each do |movie| %>
-    <li><a href="<%= movie_path(movie.id) %>"><img src="http://image.tmdb.org/t/p/w185/<%= movie.poster_path %>"><%= movie.title %></a></li>
-  <% end %>
-</ul>
-
-<h4>Upcoming Movies</h4>
-<ul>
-  <% @upcoming_movies.each do |movie| %>
-    <li><a href="<%= movie_path(movie.id) %>"><img src="http://image.tmdb.org/t/p/w185/<%= movie.poster_path %>"><%= movie.title %></a></li>
-  <% end %>
-</ul>
-
-<h4>Top Rated Movies</h4>
-<ul>
-  <% @top_rated_movies.each do |movie| %>
+  <% @movies.each do |movie| %>
     <li><a href="<%= movie_path(movie.id) %>"><img src="http://image.tmdb.org/t/p/w185/<%= movie.poster_path %>"><%= movie.title %></a></li>
   <% end %>
 </ul>
