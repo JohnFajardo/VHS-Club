@@ -1,5 +1,6 @@
 class RentalsController < ApplicationController
   before_action :find_rental, only: [:show, :edit, :update, :destroy]
+  before_action :authorized
 
   def index
     @rentals = Rental.all

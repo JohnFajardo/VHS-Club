@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
 
   def authorized
     if !@logged_in
+      flash["message"] = "You must be logged in!"
       return redirect_to new_login_path
     end
   end

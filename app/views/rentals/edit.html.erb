@@ -5,14 +5,20 @@
 <hr>
 
 <%= form_for @rental do |f| %>
-  <p><%= f.label :customer_id, 'Select customer: ' %>
-    <%= f.collection_select :customer_id, @customers, :id, :name %></p>
+  <p>
+    Renter: <%= @current_customer.name %>
+    <%= f.hidden_field :customer_id, value: @current_customer.id %>
+  </p>
 
-  <p><%= f.label :movie_id, 'Select movie: ' %>
-    <%= f.collection_select :movie_id, @movies, :id, :title %></p>
+  <p>
+    <%= f.label :movie_id, 'Select movie: ' %>
+    <%= f.collection_select :movie_id, @movies, :id, :title %>
+  </p>
 
-  <p><%= f.label :rental_length, 'Rental duration: ' %>
-    <%= f.number_field(:rental_length, in: 1..7) %> days</p>
+  <p>
+    <%= f.label :rental_length, 'Rental duration: ' %>
+    <%= f.number_field(:rental_length, in: 1..7) %> days
+  </p>
 
   <%= f.submit('Edit this rental!') %>
 <% end %>
