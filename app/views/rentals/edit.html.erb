@@ -1,9 +1,7 @@
 <h1>Editing Rental</h1>
-<p>
-  <%= link_to "Go Back", rental_path %>
-</p>
-<hr>
 
+<div class="row align-items-center justify-content-center" ">
+<div class="col-5 black-bg">
 <%= form_for @rental do |f| %>
   <p>
     Renter: <%= @current_customer.name %>
@@ -11,8 +9,8 @@
   </p>
 
   <p>
-    Movie: <%= @movie.title %>
-    <%= f.hidden_field :movie_id, value: @movie.id %>
+    Movie: <%= @rental.movie.title %>
+    <%= f.hidden_field :movie_id, value: @rental.movie.id %>
   </p>
 
   <p>
@@ -20,5 +18,8 @@
     <%= f.number_field(:rental_length, in: 1..7) %> days
   </p>
 
-  <%= f.submit("Edit Rental!") %>
+    <%= f.submit "Edit Rental!", class: "btn btn-danger float-right button-margin" %>
+    <%= link_to "Go Back", rental_path, class: "btn btn-danger float-right button-margin" %>
 <% end %>
+</div>
+</div>

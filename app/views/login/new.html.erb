@@ -1,13 +1,25 @@
+<div id="logo">
+  <img src="<%= asset_path "logo.png" %>" alt="Logo">
+</div>
+
+
+
+<div class="row align-items-center justify-content-center" ">
+  <div class="col-4 black-bg">
+
+
 <h1>Login</h1>
 
 <%= form_tag "/login" do %>
   <%= label_tag :username %>
-  <%= text_field_tag :username %>
+  <%= text_field_tag :username, nil, class: "form-control" %>
   <br>
 
   <%= label_tag :password %>
-  <%= password_field_tag :password %>
+  <%= password_field_tag :password, nil, class: "form-control" %>
   <br>
 
-  <%= submit_tag "Login" %>
+  <%= submit_tag "Login", class: "btn btn-danger float-right" %>
 <% end %>
+  </div>
+</div>
