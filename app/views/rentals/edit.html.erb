@@ -1,6 +1,6 @@
-<h1>Editing rental</h1>
-<p><%= link_to "Cancel", rentals_path %> |
-  <%= link_to "Delete rental", rental_path, method: :delete %>
+<h1>Editing Rental</h1>
+<p>
+  <%= link_to "Go Back", rental_path %>
 </p>
 <hr>
 
@@ -20,5 +20,5 @@
     <%= f.number_field(:rental_length, in: 1..7) %> days
   </p>
 
-  <%= f.submit('Edit this rental!') %>
+  <%= f.submit("Edit Rental!") %>
 <% end %>

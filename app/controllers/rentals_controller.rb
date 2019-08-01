@@ -25,7 +25,7 @@ class RentalsController < ApplicationController
   end
 
   def update
-    @rental = Rental.update(rental_params)
+    @rental.update(rental_params)
     redirect_to @rental
   end
 

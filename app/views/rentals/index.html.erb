@@ -1,11 +1,9 @@
-<h1>Viewing list of rentals</h1>
+<h1>List of All Rentals</h1>
 <p>
-  <%= link_to "Rent a Movie", movies_path %> |
-  <%= link_to "View Customers", customers_path %>
+  <%= link_to "Rent a Movie", movies_path %>
 </p>
-
-
 <hr>
+
 <ul>
   <% @rentals.each do |rental| %>
   <li><%= link_to "#{rental.customer.name }  rented  #{rental.movie.title} for #{rental.rental_length} days", rental %></li>

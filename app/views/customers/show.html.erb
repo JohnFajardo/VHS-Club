@@ -1,8 +1,8 @@
 <h1><%= @customer.name %>'s Profile Page</h1>
-<p><%= link_to "Return To Customer List", customers_path %></p>
+<p><%= link_to "Return To Customers List", customers_path %></p>
 <hr>
 
-<p>E-mail: <%= @customer.username %></p>
+<p><strong>E-mail: </strong><%= @customer.username %></p>
 
 <% if @current_customer.id == @customer.id %>
 
@@ -10,7 +10,7 @@
   <%= link_to "Delete Account", customer_path, method: :delete %>
   <br><br>
 
-  <p>Rented Movies</p>
+  <p><strong>Rented Movies</strong></p>
   <ul>
     <% @customer.rentals.each do |rental| %>
       <li>
@@ -23,7 +23,7 @@
 
 <% else %>
 
-  <p>Rented Movies</p>
+  <p><strong>Rented Movies</strong></p>
   <ul>
     <% @customer.rentals.each do |rental| %>
       <li>

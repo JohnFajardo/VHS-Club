@@ -1,12 +1,21 @@
-<h1>Viewing rental</h1>
-<p><%= link_to "All Rentals", rentals_path %> |
-  <%= link_to "Edit Rental", edit_rental_path %> |
-  <%= link_to "View Customers", customers_path %> |
-  <%= link_to "View Movies", movies_path %></p>
+<h1>Rental</h1>
+<p><%= link_to "Return To Rentals List", rentals_path %></p>
 <hr>
 
-<p><strong>Customer's Name: </strong><%= link_to @rental.customer.name, @rental.customer %></p>
-<p><strong>Movie: </strong><%= link_to @rental.movie.title, @rental.movie %></p>
-<p><strong>Rental Duration: </strong><%= @rental.rental_length %> days</p>
+<% if @current_customer.id == @rental.customer_id %>
 
-<%= link_to "Delete Rental", rental_path(@rental), method: :delete %>
+  <p><strong>Customer's Name: </strong><%= link_to @rental.customer.name, @rental.customer %></p>
+  <p><strong>Movie: </strong><%= link_to @rental.movie.title, @rental.movie %></p>
+  <p><strong>Rental Duration: </strong><%= @rental.rental_length %> days</p>
+
+  <%= link_to "Rent a Movie", movies_path %> |
+  <%= link_to "Edit Rental", edit_rental_path %> |
+  <%= link_to "Delete Rental", rental_path(@rental), method: :delete %>
+
+<% else %>
+
+  <p><strong>Customer's Name: </strong><%= link_to @rental.customer.name, @rental.customer %></p>
+  <p><strong>Movie: </strong><%= link_to @rental.movie.title, @rental.movie %></p>
+  <p><strong>Rental Duration: </strong><%= @rental.rental_length %> days</p>
+
+<% end %>
