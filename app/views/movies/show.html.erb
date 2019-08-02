@@ -1,0 +1,22 @@
+<div class="content position-relative">
+  <h1>Movie Details</h1>
+  <hr>
+  <img class="thumb" src="http://image.tmdb.org/t/p/w185<%= @movie.poster_path %>" alt="<%= @movie.title %>">
+
+
+<p><strong>Title: </strong><%= @movie.title %> <br />
+
+<strong>Release Date: </strong><%= @movie.release_date %> <br />
+
+<strong>Genre: </strong><%= @movie.genre %> <br />
+
+<strong>Rating: </strong><%= @movie.rating %> <br />
+
+  <strong>Overview: </strong><%= @movie.overview %></p>
+
+  <p class="buttons">
+    <%= link_to "Rent Movie", new_rental_path, class: "btn btn-danger float-right" %>
+    <%= link_to "Return To Movies List", movies_path, class: "btn btn-danger float-right button-margin" %>
+  </p>
+
+</div>

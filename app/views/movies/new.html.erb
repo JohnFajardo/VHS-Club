@@ -1,0 +1,26 @@
+
+<div class="row align-items-center justify-content-center" ">
+<div class="col-5 black-bg">
+<h1>Adding New Movie</h1>
+
+<%= form_for @movie do |f| %>
+  <p>
+    <%= f.label 'Title: ' %>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label 'Release Date: ' %>
+    <%= f.text_field :release_date %>
+  </p>
+
+  <p>
+    <%= f.label 'Genre: ' %>
+    <%= f.text_field :genre %>
+  </p>
+
+  <p><%= f.submit %></p>
+
+<% end %>
+</div>
+</div>

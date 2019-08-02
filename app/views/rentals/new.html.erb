@@ -1,0 +1,24 @@
+<div class="row align-items-center justify-content-center" ">
+<div class="col-5 black-bg">
+  <h1>Rent Movie</h1>
+<%= form_for @rental do |f| %>
+
+  <p>
+    Renter: <%= @current_customer.name %>
+    <%= f.hidden_field :customer_id, value: @current_customer.id %>
+  </p>
+
+  <p>
+    Movie: <%= @movie.title %>
+    <%= f.hidden_field :movie_id, value: @movie.id %>
+  </p>
+
+  <p>
+    <%= f.label :rental_length, "Rental Duration: " %>
+    <%= f.number_field(:rental_length, in: 1..7) %> days
+  </p>
+
+  <%= f.submit "Rent This Movie!", class: "btn btn-danger float-right" %>
+<% end %>
+</div>
+</div>

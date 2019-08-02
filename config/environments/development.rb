@@ -58,4 +58,7 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # Access to TheMoviesDataBase(Tmdb) API
+  Tmdb::Api.key("5a3a9131f624ff3c4f3965909f6019f5")
 end

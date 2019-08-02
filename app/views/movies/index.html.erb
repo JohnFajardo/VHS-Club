@@ -1,0 +1,15 @@
+<h1>Showing list of available movies</h1>
+<div class="grid-container">
+
+<% @movies.each do |movie| %>
+  <article id="3685" class="location-listing">
+
+    <div class="movie-image">
+      <a href="<%= movie_path(movie.id) %>">
+        <img src="http://image.tmdb.org/t/p/w185/<%= movie.poster_path %>" alt="san francisco"></a>
+      <a class="movie-title" href="#"><%= movie.title %></a>
+    </div>
+
+  </article>
+  <% end %>
+</div>

@@ -1,0 +1,28 @@
+
+
+<div class="row align-items-center justify-content-center" ">
+<div class="col-5 black-bg">
+
+  <h1>Viewing rental details</h1>
+<p><%= link_to "Return To Rentals List", rentals_path %></p>
+<hr>
+
+<% if @current_customer.id == @rental.customer_id %>
+
+  <p><strong>Customer's Name: </strong><%= link_to @rental.customer.name, @rental.customer %></p>
+  <p><strong>Movie: </strong><%= link_to @rental.movie.title, @rental.movie %></p>
+  <p><strong>Rental Duration: </strong><%= @rental.rental_length %> days</p>
+
+  <%= link_to "Rent a Movie", movies_path, class: "btn btn-danger float-right button-margin" %>
+  <%= link_to "Edit Rental", edit_rental_path, class: "btn btn-danger float-right button-margin" %>
+  <%= link_to "Delete Rental", rental_path(@rental), class: "btn btn-danger float-right button-margin", method: :delete %>
+
+<% else %>
+
+  <p><strong>Customer's Name: </strong><%= link_to @rental.customer.name, @rental.customer  %></p>
+  <p><strong>Movie: </strong><%= link_to @rental.movie.title, @rental.movie %></p>
+  <p><strong>Rental Duration: </strong><%= @rental.rental_length %> days</p>
+
+<% end %>
+</div>
+</div>
