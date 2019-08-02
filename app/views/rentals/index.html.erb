@@ -1,10 +1,8 @@
 
 <div class="row align-items-center justify-content-center" ">
-<div class="col-5 black-bg">
+<div class="col-7 black-bg">
 <h1>List of All Rentals</h1>
-<p>
-  <%= link_to "Rent a Movie", movies_path %>
-</p>
+
 <hr>
 
 <ul>
@@ -12,5 +10,9 @@
   <li><%= link_to "#{rental.customer.name }  rented  #{rental.movie.title} for #{rental.rental_length} days", rental %></li>
   <% end %>
 </ul>
+
+  <p>
+    <%= link_to "Rent a Movie", movies_path, class: "btn btn-danger float-right" %>
+  </p>
 </div>
 </div>
