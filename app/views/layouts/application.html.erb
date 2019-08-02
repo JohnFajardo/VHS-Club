@@ -5,23 +5,25 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= stylesheet_link_tag    'bootstrap', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <header>
+<!--  <div class="top-container">-->
+    <div class="container">
+    <navbar class="navbar navbar-dark fs-dark">
       <% if @logged_in %>
-        <p>Logged in As: <%= @current_customer.name %></p>
-        <%= link_to "Profile Page", customer_path(@current_customer) %> |
-        <%= link_to "All Customers", customers_path %> |
-        <%= link_to "All Movies", movies_path %> |
-        <%= link_to "All Rentals", rentals_path %> | 
-        <%= link_to "Logout", "/logout", method: :delete %>
+        <p>User: <span class="user"><%= @current_customer.name %></span>
+        <%= link_to "Profile Page", customer_path(@current_customer) %>  |
+        <%= link_to "All Customers", customers_path %>  |
+        <%= link_to "All Movies", movies_path %>  |
+        <%= link_to "All Rentals", rentals_path %>  |
+        <%= link_to "Logout", "/logout", method: :delete %></p>
       <% else %>
-        <%= link_to "Login", new_login_path %>
-        <%= link_to "Register", new_customer_path %>
+        <p><%= link_to "Login", new_login_path %> |
+        <%= link_to "Register", new_customer_path %></p>
       <% end %>
 
       <% if flash[:message] %>
@@ -29,10 +31,16 @@
           <%= flash[:message] %>
         </p>
       <% end %>
-    </header>
+    </navbar>
+    </div>
+    <div class="container">
+
 
     <div class="container">
+
       <%= yield %>
     </div>
+    </div>
+<!--  </div>-->
   </body>
 </html>

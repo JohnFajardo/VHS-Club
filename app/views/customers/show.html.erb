@@ -1,14 +1,13 @@
-<h1><%= @customer.name %>'s Profile Page</h1>
-<p><%= link_to "Return To Customers List", customers_path %></p>
-<hr>
 
+
+<div class="row align-items-center justify-content-center" ">
+<div class="col-6 black-bg">
+  <h1><%= @customer.name %>'s Profile Page</h1>
+
+  <hr>
 <p><strong>E-mail: </strong><%= @customer.username %></p>
 
 <% if @current_customer.id == @customer.id %>
-
-  <%= link_to "Edit Profile", edit_customer_path %> |
-  <%= link_to "Delete Account", customer_path, method: :delete %>
-  <br><br>
 
   <p><strong>Rented Movies</strong></p>
   <ul>
@@ -19,7 +18,9 @@
     <% end %>
   </ul>
 
-  <%= link_to "Rent a Movie", movies_path %>
+    <%= link_to "Edit Profile", edit_customer_path, class: "btn btn-danger float-right button-margin" %>
+    <%= link_to "Delete Account", customer_path, class: "btn btn-danger float-right button-margin", method: :delete %>
+  <%= link_to "Rent a Movie", movies_path, class: "btn btn-danger float-right button-margin" %>
 
 <% else %>
 
@@ -33,3 +34,5 @@
   </ul>
 
 <% end %>
+</div>
+</div>

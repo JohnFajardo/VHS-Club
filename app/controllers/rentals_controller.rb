@@ -1,6 +1,6 @@
 class RentalsController < ApplicationController
   before_action :find_rental, only: [:show, :edit, :update, :destroy]
-  before_action :find_movie, only: [:new, :create, :edit, :update]
+  before_action :find_movie, only: [:new, :create]
   before_action :authorized
 
   def index
@@ -20,8 +20,6 @@ class RentalsController < ApplicationController
   end
 
   def edit
-    @customers = Customer.all
-    @movies = Movie.all
   end
 
   def update
