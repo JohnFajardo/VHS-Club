@@ -7,7 +7,7 @@
 
 <ul>
   <% @rentals.each do |rental| %>
-  <li><%= link_to "#{rental.customer.name }  rented  #{rental.movie.title} for #{rental.rental_length} days", rental %></li>
+    <li> <a href="customers/<%= rental.customer_id %>"><%= rental.customer.name %></a> rented <a href="movies/<%= rental.movie_id %>"><%= rental.movie.title %></a> for <%= rental.rental_length %> days.</li>
   <% end %>
 </ul>
 

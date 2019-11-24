@@ -9,9 +9,13 @@
 Movie.destroy_all
 Customer.destroy_all
 
-Customer.create(name: "Petaaa", username: "peter@gmail.com", password: "peterpass")
-Customer.create(name: "John", username: "john@gmail.com", password: "johnpass")
-Customer.create(name: "Bobby", username: "bobby@gmail.com", password: "bobbypass")
+Customer.create(name: "John", username: "fajardocj@gmail.com", password: "abc123")
+Customer.create(name: "Peter", username: "peter@gmail.com", password: "abc123")
+Customer.create(name: "Bobby", username: "bobby@gmail.com", password: "abc123")
+Customer.create(name: "Megan", username: "megan@gmail.com", password: "abc123")
+Customer.create(name: "Alex", username: "alex@gmail.com", password: "abc123")
+Customer.create(name: "Amrit", username: "amrit@gmail.com", password: "abc123")
+Customer.create(name: "Joe", username: "joe@gmail.com", password: "abc123")
 
 Tmdb::Movie.popular.each do |movie|
   @movie = Movie.create(title: movie.title, release_date: movie.release_date, overview: movie.overview, poster_path: movie.poster_path, rating: movie.vote_average)
@@ -28,4 +32,8 @@ Tmdb::Movie.popular.each do |movie|
   end
 
   @movie.update(genre: movie_genres)
+end
+
+25.times do
+  Rental.create(customer_id: rand(2..7), movie_id: rand(1..20), rental_length: rand(1..20))
 end
