@@ -19,3 +19,4 @@ production:
   database: vhs-club_production
   username: auth
   password: <%= ENV['AUTH_DATABASE_PASSWORD'] %>
+  
