@@ -1,24 +1,23 @@
-# README
+# VHS Club
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome back to the 90's! in this app, you're able to see a list of movies to rent, rent them and see who else has rented any movies.
 
-Things you may want to cover:
+![](vhs-club-demo.gif)
 
-* Ruby version
+## Features
 
-* System dependencies
+* Uses on Ruby on Rails as a pure MVC app.
+* Pulls seed data from The Movie Database.
+* Uses Bootstrap SASS to style views.
 
-* Configuration
 
-* Database creation
+## How to run
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Fire up your terminal app and clone this repo: `git clone git@github.com:ThatJohn/VHS-Club.git`
+* cd into the project directory: `cd VHS-Club`
+* Install dependencies: `bundle install`
+* Create database: `rails db:create`
+* Migrate database: `rails db:migrate`
+* Seed database: `rails db:seed`
+* Run rails: `rails s`
+* Point your browser to `http://localhost:3000`
